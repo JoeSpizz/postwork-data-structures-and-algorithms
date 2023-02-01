@@ -1,7 +1,17 @@
 function selectionSortRecursive(arr) {
-  // type your code here
-}
+  if (arr.length === 0) {
+    return [];
+  }
 
+  let min = Math.min(...arr);
+  let idx = arr.indexOf(min);
+  arr.splice(idx, 1);
+  let result = selectionSortRecursive(arr);
+  result.unshift(min);
+  console.log(result)
+  return result;
+}
+//
 if (require.main === module) {
   // add your own tests in here
   console.log("Expecting: [-1, 2, 3, 5]");
